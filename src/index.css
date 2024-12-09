@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.fc {
+  height: 100%;
+}
+
+.fc .fc-toolbar {
+  @apply flex-wrap gap-4;
+}
+
+.fc .fc-button {
+  @apply bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  @apply bg-blue-800;
+}
+
+.fc-event {
+  @apply cursor-pointer;
+}
+
+.fc-daygrid-day {
+  @apply transition-colors duration-300;
+}
+
+/* Seasonal theme transitions */
+.fc-daygrid-day-frame {
+  @apply transition-colors duration-300;
+}
+
+.fc-day-today {
+  @apply ring-2 ring-offset-2 ring-blue-500 !important;
+}
+
+/* Christmas Decorations - Only visible when .christmas-theme is present */
+.christmas-theme .christmas-decorations {
+  @apply absolute inset-0 pointer-events-none;
+}
+
+.christmas-theme .lights-top {
+  @apply absolute top-0 left-0 right-0 h-4;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffd700 0px,
+    #ffd700 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+
+.christmas-theme .lights-left,
+.christmas-theme .lights-right {
+  @apply absolute top-0 bottom-0 w-4;
+  background: repeating-linear-gradient(
+    180deg,
+    #ff4136 0px,
+    #ff4136 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+.christmas-theme .lights-left {
+  @apply left-0;
+}
+
+.christmas-theme .lights-right {
+  @apply right-0;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.christmas-theme .snowflakes {
+  @apply absolute inset-0 overflow-hidden;
+}
+
+.christmas-theme .snowflake {
+  @apply absolute text-red-600 pointer-events-none;
+  animation: fall linear infinite;
+  animation-duration: 15s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.christmas-theme .snowflake:nth-child(2n) {
+  @apply text-green-600;
+}
+
+.christmas-theme .snowflake:nth-child(3n) {
+  @apply text-yellow-500;
+}
+
+.christmas-theme .snowflake:nth-child(1) { left: 10%; animation-delay: -0.5s; font-size: 14px; }
+.christmas-theme .snowflake:nth-child(2) { left: 20%; animation-delay: -1.0s; font-size: 16px; }
+.christmas-theme .snowflake:nth-child(3) { left: 30%; animation-delay: -1.5s; font-size: 18px; }
+.christmas-theme .snowflake:nth-child(4) { left: 40%; animation-delay: -2.0s; font-size: 20px; }
+.christmas-theme .snowflake:nth-child(5) { left: 50%; animation-delay: -2.5s; font-size: 22px; }
+.christmas-theme .snowflake:nth-child(6) { left: 60%; animation-delay: -3.0s; font-size: 24px; }
+.christmas-theme .snowflake:nth-child(7) { left: 70%; animation-delay: -3.5s; font-size: 26px; }
+.christmas-theme .snowflake:nth-child(8) { left: 80%; animation-delay: -4.0s; font-size: 28px; }
+.christmas-theme .snowflake:nth-child(9) { left: 90%; animation-delay: -4.5s; font-size: 30px; }
+.christmas-theme .snowflake:nth-child(10) { left: 100%; animation-delay: -5.0s; font-size: 32px; }
